@@ -76,7 +76,7 @@ export default function Home() {
   const recordsList = Object.values(records);
   const totalHours = recordsList.reduce((acc, r) => acc + Number(r.horas_trabalhadas || 0), 0);
   const totalExpenses = recordsList.reduce((acc, r) => acc + Number(r.despesas || 0), 0);
-  const totalEarned = (totalHours * HOURLY_RATE) + totalExpenses;
+  const totalEarned = (totalHours * HOURLY_RATE) - totalExpenses;
 
   // Month status
   const isMonthClosed = recordsList.length > 0 && recordsList.some(r => r.mes_fechado);
